@@ -1,0 +1,1 @@
+python autoz.py
