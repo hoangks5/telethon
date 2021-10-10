@@ -40,6 +40,7 @@ for accs in acc:
     client = TelegramClient(accs, api_id, api_hash)
     async def main():
         me = await client.get_me()
+        print(me)
     with client:
         client.loop.run_until_complete(main())
 print('Đã đăng nhập '+str(len(acc))+' acc trên hệ thống, vui lòng đọc hướng dẫn chi tiết bên trên.\n')
