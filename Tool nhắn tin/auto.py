@@ -12,8 +12,8 @@ from telethon.tl.functions.photos import UploadProfilePhotoRequest
 from telethon.tl.functions.account import UpdateProfileRequest
 import os
 
-api_id = 8763319
-api_hash = '28f53a40a4052cd950dab693a3a3c04c'
+api_id = 8759328
+api_hash = '1a270788cb618993f54f514f5a8c93c4'
 f = open('chat.txt','r',encoding='utf-8')
 f = f.read()
 f = f.split('||')
@@ -36,13 +36,15 @@ def xinchao():
         print(iz)
 xinchao()
 for accs in acc:
-    print(accs)
-    client = TelegramClient(accs, api_id, api_hash)
-    async def main():
-        me = await client.get_me()
-        print(me)
-    with client:
-        client.loop.run_until_complete(main())
+    try:
+        print(accs)
+        client = TelegramClient(accs, api_id, api_hash)
+        async def main():
+            me = await client.get_me()
+        with client:
+            client.loop.run_until_complete(main())
+    except:
+        print('Lỗi '+accs)
 print('Đã đăng nhập '+str(len(acc))+' acc trên hệ thống, vui lòng đọc hướng dẫn chi tiết bên trên.\n')
 link_gr = input('Nhập link group(vd: https://t.me/laucua) :')
 time_acc = int(input('Thời gian chat cách nhau của các acc(giây) :'))
