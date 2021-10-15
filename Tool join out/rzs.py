@@ -29,12 +29,15 @@ def xinchao():
         print(iz)
 xinchao()
 for accs in acc:
-    print(accs)
-    client = TelegramClient(accs, api_id, api_hash)
-    async def main():
-        me = await client.get_me()
-    with client:
-        client.loop.run_until_complete(main())
+    try:
+        print(accs)
+        client = TelegramClient(accs, api_id, api_hash)
+        async def main():
+            me = await client.get_me()
+        with client:
+            client.loop.run_until_complete(main())
+    except:
+        print('Lỗi '+accs)
 name_tt = input('Nhập tên muốn đổi: ')
 about_tt = input('Nhập tiểu sử muốn đổi: ')
 link_gr = input('Nhập link group(vd: https://t.me/laucua) :')
